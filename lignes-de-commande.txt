@@ -1,0 +1,46 @@
+# LIGNES DE COMMANDE
+
+## installation de symfony via CLI
+```brew install symfony-cli/tap/symfony-cli```
+
+
+## Information concernant les versions de PHP & SYMFONY
+```symfony console about```
+
+
+## Créer un projet en full (website) avec tous les composants
+
+### version Composer
+```composer create-project symfony/website-skeleton nom-du-projet```
+
+### version CLI 
+```symfony new --webapp nom-du-projet```
+
+
+## Utilisation de symfony en version LTS
+```symfony new --webapp projet-lts --version=lts```
+
+## Choix des versions : 
+### version CLI
+```symfony new --webapp nom-du-projet --version=4.4```
+
+### Version Composer
+```composer create-project symfony/skeleton:"6.4.*" nom-du-projet```
+
+
+## Start le serveur
+### version CLI
+```symfony serve```
+
+### version Composer
+```composer create-project symfony/skeleton nom-du-projet```
+
+## Arrêter le serveur
+## version CLI
+```symfony server:stop```
+
+## Afin d'avoir un serveur en HTTPS
+```symfony server:ca:install```
+
+## Verifier les requirements
+symfony check:requirements
