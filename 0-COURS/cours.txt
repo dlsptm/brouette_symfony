@@ -1,0 +1,23 @@
+# COURS SYMFONY
+
+https://dbdiagram.io/d/Symfony-e-commerce-61643981940c4c4eec8f40a5
+
+
+Il est conseillé d'utiliser Symfony CLI
+
+
+#[ORM\Id] => clé primaire
+
+
+les extends AbstractController
+-> par défaut les controllers étant AsbtractController qui nous implémente des services comme des gestions de twig, securité etc
+On peut s'en passer 
+
+
+Route = gère les attributs route
+
+render() => rendu de la page html de notre route
+
+Twig = template
+
+Attention à ne pas oublier la balide méta viewport

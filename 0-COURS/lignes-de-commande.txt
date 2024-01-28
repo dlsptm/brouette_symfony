@@ -44,3 +44,12 @@
 
 ## Verifier les requirements
 symfony check:requirements
+
+## Créer une base de données
+```symfony console doctrine:database:create```
+
+## Créer une connexion avec user 
+```symfony console make:user````
+
+Créer un controller 
+```symfony console make:controller```
