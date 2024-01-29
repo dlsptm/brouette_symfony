@@ -21,3 +21,7 @@ render() => rendu de la page html de notre route
 Twig = template
 
 Attention à ne pas oublier la balide méta viewport
+
+
+les data fixtures est un composant de doctrine qui me permet de générer automatiquement mes données
+Permet d'avoir des faux utilisateurs 

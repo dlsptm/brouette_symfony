@@ -51,16 +51,16 @@ symfony check:requirements
 ## Créer une connexion avec user 
 ```symfony console make:user````
 
-Créer un controller 
+## Créer un controller 
 ```symfony console make:controller```
 
 Créer un formulaire d'authentification
 ```symfony console make:auth```
 
-Créer un formulaire de registration
+## Créer un formulaire de registration
 ```symfony console make:registration-form```
 
-Créer une migration
+## Créer une migration
 ```symfony console d:m:m```
 ```symfony console doctrine:migration:migrate```
 
@@ -68,8 +68,14 @@ Créer une migration
 
 
 
-Avoir des fixtures
+## Avoir des fixtures
 ```composer require --dev orm-fixtures ```
 
-Générer des données fake 
+## Générer des données fake 
 ```composer require fakerphp/faker```
+
+
+## Regénérer sa base de donnée :
+```symfony console doctrine:schema:update --complete --force```
+puis
+symfony console doctrine:fixtures:load --no-interaction

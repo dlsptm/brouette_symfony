@@ -22,6 +22,7 @@ class Category
     private ?string $name = null;
 
     #[ORM\ManyToOne(targetEntity: self::class, inversedBy: 'categories')]
+    #[ORM\JoinColumn(onDelete: 'CASCADE')]
     private ?self $parent = null;
 
     #[ORM\OneToMany(mappedBy: 'parent', targetEntity: self::class)]
@@ -107,7 +108,7 @@ class Category
     {
         if (!$this->products->contains($product)) {
             $this->products->add($product);
-            $product->setCategories($this);
+            $product->setCategory($this);
         }
 
         return $this;
@@ -117,8 +118,8 @@ class Category
     {
         if ($this->products->removeElement($product)) {
             // set the owning side to null (unless already changed)
-            if ($product->getCategories() === $this) {
-                $product->setCategories(null);
+            if ($product->getCategory() === $this) {
+                $product->setCategory(null);
             }
         }
 
