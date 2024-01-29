@@ -53,3 +53,23 @@ symfony check:requirements
 
 Créer un controller 
 ```symfony console make:controller```
+
+Créer un formulaire d'authentification
+```symfony console make:auth```
+
+Créer un formulaire de registration
+```symfony console make:registration-form```
+
+Créer une migration
+```symfony console d:m:m```
+```symfony console doctrine:migration:migrate```
+
+
+
+
+
+Avoir des fixtures
+```composer require --dev orm-fixtures ```
+
+Générer des données fake 
+```composer require fakerphp/faker```

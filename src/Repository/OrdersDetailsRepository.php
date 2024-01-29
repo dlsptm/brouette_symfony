@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\OrderDetails;
+use App\Entity\OrdersDetails;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
@@ -14,11 +15,11 @@ use Doctrine\Persistence\ManagerRegistry;
  * @method OrderDetails[]    findAll()
  * @method OrderDetails[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class OrderDetailsRepository extends ServiceEntityRepository
+class OrdersDetailsRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, OrderDetails::class);
+        parent::__construct($registry, OrdersDetails::class);
     }
 
 //    /**

@@ -2,12 +2,12 @@
 
 namespace App\Entity;
 
-use App\Repository\OrderDetailsRepository;
+use App\Repository\OrdersDetailsRepository;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity(repositoryClass: OrderDetailsRepository::class)]
-class OrderDetails
-{ 
+#[ORM\Entity(repositoryClass: OrdersDetailsRepository::class)]
+class OrdersDetails
+{
     #[ORM\Column]
     private ?int $quantity = null;
 
@@ -15,15 +15,14 @@ class OrderDetails
     private ?int $price = null;
 
     #[ORM\Id]
-    #[ORM\ManyToOne(inversedBy: 'orderDetails')]
+    #[ORM\ManyToOne(inversedBy: 'ordersDetails')]
     #[ORM\JoinColumn(nullable: false)]
     private ?Orders $orders = null;
 
     #[ORM\Id]
-    #[ORM\ManyToOne(inversedBy: 'orderDetails')]
+    #[ORM\ManyToOne(inversedBy: 'ordersDetails')]
     #[ORM\JoinColumn(nullable: false)]
     private ?Products $products = null;
-
 
     public function getQuantity(): ?int
     {

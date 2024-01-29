@@ -8,7 +8,7 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: CouponsTypeRepository::class)]
-class CouponsType
+class CouponsTypes
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]

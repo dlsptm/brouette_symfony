@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use App\Entity\Trait\CreatedAtTrait;
 use App\Repository\OrdersRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -10,6 +11,8 @@ use Doctrine\ORM\Mapping as ORM;
 #[ORM\Entity(repositoryClass: OrdersRepository::class)]
 class Orders
 {
+    use CreatedAtTrait;
+
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
@@ -18,9 +21,6 @@ class Orders
     #[ORM\Column(length: 20, unique: true)]
     private ?string $reference = null;
 
-    #[ORM\Column(options: ['default'=>'CURRENT_TIMESTAMP'])]
-    private ?\DateTimeImmutable $created_at = null;
-
     #[ORM\ManyToOne(inversedBy: 'orders')]
     private ?Coupons $coupons = null;
 
@@ -28,12 +28,13 @@ class Orders
     #[ORM\JoinColumn(nullable: false)]
     private ?Users $users = null;
 
-    #[ORM\OneToMany(mappedBy: 'orders', targetEntity: OrderDetails::class, orphanRemoval: true)]
-    private Collection $orderDetails;
+    #[ORM\OneToMany(mappedBy: 'orders', targetEntity: OrdersDetails::class, orphanRemoval: true)]
+    private Collection $ordersDetails;
 
     public function __construct()
     {
-        $this->orderDetails = new ArrayCollection();
+        $this->ordersDetails = new ArrayCollection();
+        $this->created_at = new \DateTimeImmutable();
     }
 
     public function getId(): ?int
@@ -49,18 +50,6 @@ class Orders
     public function setReference(string $reference): static
     {
         $this->reference = $reference;
-
-        return $this;
-    }
-
-    public function getCreatedAt(): ?\DateTimeImmutable
-    {
-        return $this->created_at;
-    }
-
-    public function setCreatedAt(\DateTimeImmutable $created_at): static
-    {
-        $this->created_at = $created_at;
 
         return $this;
     }
@@ -90,29 +79,29 @@ class Orders
     }
 
     /**
-     * @return Collection<int, OrderDetails>
+     * @return Collection<int, OrdersDetails>
      */
-    public function getOrderDetails(): Collection
+    public function getOrdersDetails(): Collection
     {
-        return $this->orderDetails;
+        return $this->ordersDetails;
     }
 
-    public function addOrderDetail(OrderDetails $orderDetail): static
+    public function addOrdersDetail(OrdersDetails $ordersDetail): static
     {
-        if (!$this->orderDetails->contains($orderDetail)) {
-            $this->orderDetails->add($orderDetail);
-            $orderDetail->setOrders($this);
+        if (!$this->ordersDetails->contains($ordersDetail)) {
+            $this->ordersDetails->add($ordersDetail);
+            $ordersDetail->setOrders($this);
         }
 
         return $this;
     }
 
-    public function removeOrderDetail(OrderDetails $orderDetail): static
+    public function removeOrdersDetail(OrdersDetails $ordersDetail): static
     {
-        if ($this->orderDetails->removeElement($orderDetail)) {
+        if ($this->ordersDetails->removeElement($ordersDetail)) {
             // set the owning side to null (unless already changed)
-            if ($orderDetail->getOrders() === $this) {
-                $orderDetail->setOrders(null);
+            if ($ordersDetail->getOrders() === $this) {
+                $ordersDetail->setOrders(null);
             }
         }
 
