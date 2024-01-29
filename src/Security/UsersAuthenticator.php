@@ -22,20 +22,10 @@ class UsersAuthenticator extends AbstractLoginFormAuthenticator
 
     public const LOGIN_ROUTE = 'app_login';
 
-    // générateur d'URL
     public function __construct(private UrlGeneratorInterface $urlGenerator)
     {
     }
 
-    /**
-     * Passport gère l'authentification de l'utilisateur
-     * authenticate crée le passport
-     * UserBadge permet de chercher l'utilisateur
-     * CsrfTokenBadge = geton de sécurité qui sert à ce que les infos provienne bien de notre formulaire
-     * 
-     * @param Request $request
-     * @return Passport
-     */
     public function authenticate(Request $request): Passport
     {
         $email = $request->request->get('email', '');
@@ -54,14 +44,13 @@ class UsersAuthenticator extends AbstractLoginFormAuthenticator
 
     public function onAuthenticationSuccess(Request $request, TokenInterface $token, string $firewallName): ?Response
     {
-
         if ($targetPath = $this->getTargetPath($request->getSession(), $firewallName)) {
             return new RedirectResponse($targetPath);
         }
 
-        // Redigire l'utilisateur vers main
-         return new RedirectResponse($this->urlGenerator->generate('app_main'));
-       // throw new \Exception('TODO: provide a valid redirect inside '.__FILE__);
+        // For example:
+        return new RedirectResponse($this->urlGenerator->generate('app_main'));
+        // throw new \Exception('TODO: provide a valid redirect inside '.__FILE__);
     }
 
     protected function getLoginUrl(Request $request): string

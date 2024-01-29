@@ -59,7 +59,7 @@ class RegistrationFormType extends AbstractType
                                 'mapped' => false,
                 'constraints' => [
                     new IsTrue([
-                        'message' => 'Vous devez accepter nos termes.'
+                        'message' => 'You should agree to our terms.'
                     ]),
                 ],
                 'label' => 'En m\'inscrivant à ce site j\'accepte...'

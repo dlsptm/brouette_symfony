@@ -20,4 +20,4 @@ trait SlugTrait
 
         return $this;
     }
-} 
+}

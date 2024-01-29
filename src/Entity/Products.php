@@ -35,7 +35,7 @@ class Products
 
     #[ORM\ManyToOne(inversedBy: 'products')]
     #[ORM\JoinColumn(nullable: false)]
-    private ?Category $category = null;
+    private ?Categories $categories = null;
 
     #[ORM\OneToMany(mappedBy: 'products', targetEntity: Images::class, orphanRemoval: true)]
     private Collection $images;
@@ -103,14 +103,14 @@ class Products
         return $this;
     }
 
-    public function getCategory(): ?Category
+    public function getCategories(): ?Categories
     {
-        return $this->category;
+        return $this->categories;
     }
 
-    public function setCategory(?Category $category): static
+    public function setCategories(?Categories $categories): static
     {
-        $this->category = $category;
+        $this->categories = $categories;
 
         return $this;
     }

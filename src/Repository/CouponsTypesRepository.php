@@ -2,20 +2,19 @@
 
 namespace App\Repository;
 
-use App\Entity\CouponsType;
 use App\Entity\CouponsTypes;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @extends ServiceEntityRepository<CouponsType>
+ * @extends ServiceEntityRepository<CouponsTypes>
  *
- * @method CouponsType|null find($id, $lockMode = null, $lockVersion = null)
- * @method CouponsType|null findOneBy(array $criteria, array $orderBy = null)
- * @method CouponsType[]    findAll()
- * @method CouponsType[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method CouponsTypes|null find($id, $lockMode = null, $lockVersion = null)
+ * @method CouponsTypes|null findOneBy(array $criteria, array $orderBy = null)
+ * @method CouponsTypes[]    findAll()
+ * @method CouponsTypes[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class CouponsTypeRepository extends ServiceEntityRepository
+class CouponsTypesRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
@@ -23,7 +22,7 @@ class CouponsTypeRepository extends ServiceEntityRepository
     }
 
 //    /**
-//     * @return CouponsType[] Returns an array of CouponsType objects
+//     * @return CouponsTypes[] Returns an array of CouponsTypes objects
 //     */
 //    public function findByExampleField($value): array
 //    {
@@ -37,7 +36,7 @@ class CouponsTypeRepository extends ServiceEntityRepository
 //        ;
 //    }
 
-//    public function findOneBySomeField($value): ?CouponsType
+//    public function findOneBySomeField($value): ?CouponsTypes
 //    {
 //        return $this->createQueryBuilder('c')
 //            ->andWhere('c.exampleField = :val')

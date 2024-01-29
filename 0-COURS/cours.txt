@@ -28,3 +28,10 @@ les data fixtures est un composant de doctrine qui permet de générer automatiq
 
 ## slug()
 En Symfony, un "slug" fait référence à une chaîne de caractères conviviale pour les URL. Un slug est généralement utilisé pour représenter un titre, un nom ou un autre texte dans une forme qui est facilement lisible par les humains et adaptée aux URL. Les slugs sont couramment utilisés dans les applications web pour améliorer l'expérience utilisateur en créant des URL conviviales et compréhensibles.
+
+
+## Controllers 
+
+```return $this->render('product/details.html.twig', compact('product'));```
+
+compact() sert à faire un tableau associatif 

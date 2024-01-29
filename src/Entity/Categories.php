@@ -3,13 +3,14 @@
 namespace App\Entity;
 
 use App\Entity\Trait\SlugTrait;
-use App\Repository\CategoryRepository;
+use App\Repository\CategoriesRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity(repositoryClass: CategoryRepository::class)]
-class Category
+#[ORM\Entity(repositoryClass: CategoriesRepository::class)]
+
+class Categories
 {   
     use SlugTrait;
     
@@ -21,8 +22,11 @@ class Category
     #[ORM\Column(length: 100)]
     private ?string $name = null;
 
+    #[ORM\Column(length: 100)]
+    private ?int $categoryOrder = null;
+
     #[ORM\ManyToOne(targetEntity: self::class, inversedBy: 'categories')]
-    #[ORM\JoinColumn(onDelete: 'CASCADE')]
+    #[ORM\JoinColumn(onDelete: "CASCADE")]
     private ?self $parent = null;
 
     #[ORM\OneToMany(mappedBy: 'parent', targetEntity: self::class)]
@@ -51,6 +55,17 @@ class Category
     {
         $this->name = $name;
 
+        return $this;
+    }
+
+    public function getCategoryOrder(): ?int
+    {
+        return $this->categoryOrder;
+    }
+
+    public function setCategoryOrder(int $categoryOrder): self
+    {
+        $this->categoryOrder = $categoryOrder;
         return $this;
     }
 
@@ -108,7 +123,7 @@ class Category
     {
         if (!$this->products->contains($product)) {
             $this->products->add($product);
-            $product->setCategory($this);
+            $product->setCategories($this);
         }
 
         return $this;
@@ -118,8 +133,8 @@ class Category
     {
         if ($this->products->removeElement($product)) {
             // set the owning side to null (unless already changed)
-            if ($product->getCategory() === $this) {
-                $product->setCategory(null);
+            if ($product->getCategories() === $this) {
+                $product->setCategories(null);
             }
         }
 

@@ -5,30 +5,30 @@ namespace App\DataFixtures;
 use App\Entity\Users;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
+use Faker;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\String\Slugger\SluggerInterface;
-use Faker; 
 
 class UsersFixtures extends Fixture
 {
+    public function __construct(private UserPasswordHasherInterface $passwordEncoder, private SluggerInterface $slugger){}
 
-    public function __construct(private UserPasswordHasherInterface $passwordEncoder, private SluggerInterface $slugger ) {}
 
     public function load(ObjectManager $manager): void
     {
         $admin = new Users();
         $admin->setEmail('inesberber92@gmail.com');
-        $admin->setLastname('Berber'); 
+        $admin->setLastname('Berber');
         $admin->setFirstname('Ines');
-        $admin->setAddress('Quelque part à Marseille');
-        $admin->setZipcode('13006');
+        $admin->setAddress('12 rue du port');
+        $admin->setZipcode('75001');
         $admin->setCity('Marseille');
         $admin->setPassword(
-            $this->passwordEncoder->hashPassword($admin, 'azerty123')
+            $this->passwordEncoder->hashPassword($admin, 'admin')
         );
         $admin->setRoles(['ROLE_ADMIN']);
-        $manager->persist($admin);
 
+        $manager->persist($admin);
 
         $faker= Faker\Factory::create('fr_FR');
 

@@ -20,4 +20,4 @@ trait CreatedAtTrait
 
         return $this;
     }
-} 
+}

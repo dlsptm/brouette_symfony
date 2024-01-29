@@ -1,13 +1,13 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
 	<div class="container-fluid">
-		<a class="navbar-brand" href="#">Navbar</a>
+		<a class="navbar-brand" href="{{ path('app_main')}}">e-commerce</a>
 		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		</button>
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 				<li class="nav-item">
-					<a class="nav-link active" aria-current="page" href="#">Home</a>
+					<a class="nav-link active" aria-current="page" href="{{ path('app_main')}}">Accueil</a>
 				</li>
 				<li class="nav-item">
 					<a class="nav-link" href="#">Link</a>
@@ -34,24 +34,22 @@
 				</li>
 			</ul>
 			<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-				{% if app.user %}
-				<li class="nav-item mx-2">
-					<a class="nav-link active btn btn-info" aria-current="page" href="{{ path('app_logout') }}">Mon Compte</a>
+			{% if app.user %}
+				<li class="nav-item">
+					<a class="nav-link" href="#">Mon compte</a>
 				</li>
-				<li class="nav-item mx-2">
-
-					<a class="nav-link active btn btn-warning" aria-current="page" href="{{ path('app_logout') }}">Me déconnecter</a>
+				<li class="nav-item">
+					<a class="nav-link" href="{{ path('app_logout')}}">Me déconnecter</a>
 				</li>
 				{% else %}
-				<li class="nav-item mx-2">
-
-					<a class="nav-link active btn btn-info" aria-current="page" href="{{ path('app_login') }}">Se connecter</a>
+					<li class="nav-item">
+					<a class="nav-link" href="{{ path('app_register')}}">M'inscrire</a>
 				</li>
-				<li class="nav-item mx-2">
-					<a class="nav-link active btn btn-warning" aria-current="page" href="{{ path('app_register') }}">M'inscrire</a>
+					<li class="nav-item">
+					<a class="nav-link" href="{{ path('app_login')}}">Me connecter</a>
 				</li>
-				{% endif %}
-				</ul>
+			{% endif %}
+			</ul>
 		</div>
 	</div>
 </nav>

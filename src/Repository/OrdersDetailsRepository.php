@@ -2,18 +2,17 @@
 
 namespace App\Repository;
 
-use App\Entity\OrderDetails;
 use App\Entity\OrdersDetails;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @extends ServiceEntityRepository<OrderDetails>
+ * @extends ServiceEntityRepository<OrdersDetails>
  *
- * @method OrderDetails|null find($id, $lockMode = null, $lockVersion = null)
- * @method OrderDetails|null findOneBy(array $criteria, array $orderBy = null)
- * @method OrderDetails[]    findAll()
- * @method OrderDetails[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method OrdersDetails|null find($id, $lockMode = null, $lockVersion = null)
+ * @method OrdersDetails|null findOneBy(array $criteria, array $orderBy = null)
+ * @method OrdersDetails[]    findAll()
+ * @method OrdersDetails[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
 class OrdersDetailsRepository extends ServiceEntityRepository
 {
@@ -23,7 +22,7 @@ class OrdersDetailsRepository extends ServiceEntityRepository
     }
 
 //    /**
-//     * @return OrderDetails[] Returns an array of OrderDetails objects
+//     * @return OrdersDetails[] Returns an array of OrdersDetails objects
 //     */
 //    public function findByExampleField($value): array
 //    {
@@ -37,7 +36,7 @@ class OrdersDetailsRepository extends ServiceEntityRepository
 //        ;
 //    }
 
-//    public function findOneBySomeField($value): ?OrderDetails
+//    public function findOneBySomeField($value): ?OrdersDetails
 //    {
 //        return $this->createQueryBuilder('o')
 //            ->andWhere('o.exampleField = :val')

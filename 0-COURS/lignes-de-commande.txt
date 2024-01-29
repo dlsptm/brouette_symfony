@@ -3,10 +3,8 @@
 ## installation de symfony via CLI
 ```brew install symfony-cli/tap/symfony-cli```
 
-
 ## Information concernant les versions de PHP & SYMFONY
 ```symfony console about```
-
 
 ## Créer un projet en full (website) avec tous les composants
 
@@ -15,7 +13,6 @@
 
 ### version CLI 
 ```symfony new --webapp nom-du-projet```
-
 
 ## Utilisation de symfony en version LTS
 ```symfony new --webapp projet-lts --version=lts```
@@ -26,7 +23,6 @@
 
 ### Version Composer
 ```composer create-project symfony/skeleton:"6.4.*" nom-du-projet```
-
 
 ## Start le serveur
 ### version CLI
@@ -69,7 +65,6 @@ Créer un formulaire d'authentification
 
 ## Générer des données fake 
 ```composer require fakerphp/faker```
-
 
 ## Regénérer sa base de donnée :
 ```symfony console doctrine:schema:update --complete --force```
