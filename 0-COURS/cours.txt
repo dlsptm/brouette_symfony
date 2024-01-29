@@ -3,25 +3,28 @@
 https://dbdiagram.io/d/Symfony-e-commerce-61643981940c4c4eec8f40a5
 
 
-Il est conseillé d'utiliser Symfony CLI
+** Il est conseillé d'utiliser Symfony CLI **
+
+## Object-Relational Mapping
+#[ORM\Id] => indique clé primaire
+L'ORM (Object-Relational Mapping) en Symfony est un concept clé qui facilite la manipulation des données dans une application web en utilisant un langage de programmation orienté objet plutôt qu'en utilisant des requêtes SQL directes. Symfony utilise Doctrine comme ORM par défaut.
 
 
-#[ORM\Id] => clé primaire
+##  AbstractController dans les Controllers
+En Symfony, l'extension de AbstractController offre plusieurs avantages. Cela permet l'accès aux services Symfony, comme l'ORM Doctrine via $this->getDoctrine(), simplifie la génération d'URL avec $this->generateUrl(), facilite la gestion des réponses HTTP avec des méthodes dédiées comme $this->redirectToRoute(). De plus, l'accès à la session et la manipulation des cookies sont simplifiés. L'extension facilite l'intégration avec d'autres composants Symfony, gère automatiquement l'injection de dépendances, et offre l'utilisation transparente du moteur de templates Twig via $this->render(). En résumé, étendre AbstractController simplifie le développement en fournissant des fonctionnalités pratiques et une intégration fluide avec les services Symfony. Toutefois, on peut s'en passer.
 
 
-les extends AbstractController
--> par défaut les controllers étant AsbtractController qui nous implémente des services comme des gestions de twig, securité etc
-On peut s'en passer 
+## Route
+En Symfony, l'annotation @Route est utilisée pour définir des routes dans le contexte d'un contrôleur. Une route est une correspondance entre une URL et une action à exécuter dans un contrôleur. L'utilisation de l'annotation @Route permet à Symfony de lier une URL spécifique à une méthode particulière d'un contrôleur.
 
+- render() => rendu de la page html de notre route
+- RedirectToRoute() => redirige vers une route
 
-Route = gère les attributs route
-
-render() => rendu de la page html de notre route
-
-Twig = template
-
+## Twig 
 Attention à ne pas oublier la balide méta viewport
 
+## Data Fixtures
+les data fixtures est un composant de doctrine qui permet de générer automatiquement des données comme par exemple avoir des faux utilisateurs 
 
-les data fixtures est un composant de doctrine qui me permet de générer automatiquement mes données
-Permet d'avoir des faux utilisateurs 
+## slug()
+En Symfony, un "slug" fait référence à une chaîne de caractères conviviale pour les URL. Un slug est généralement utilisé pour représenter un titre, un nom ou un autre texte dans une forme qui est facilement lisible par les humains et adaptée aux URL. Les slugs sont couramment utilisés dans les applications web pour améliorer l'expérience utilisateur en créant des URL conviviales et compréhensibles.

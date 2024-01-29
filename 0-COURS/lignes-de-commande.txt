@@ -64,11 +64,7 @@ Créer un formulaire d'authentification
 ```symfony console d:m:m```
 ```symfony console doctrine:migration:migrate```
 
-
-
-
-
-## Avoir des fixtures
+## Avoir des fixtures (voir cours)
 ```composer require --dev orm-fixtures ```
 
 ## Générer des données fake 
@@ -77,5 +73,5 @@ Créer un formulaire d'authentification
 
 ## Regénérer sa base de donnée :
 ```symfony console doctrine:schema:update --complete --force```
-puis
+### puis, dans le cas où on veut générer à nouveau ses fixtures
 symfony console doctrine:fixtures:load --no-interaction
