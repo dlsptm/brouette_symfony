@@ -1,0 +1,72 @@
+# LIGNES DE COMMANDE
+
+## installation de symfony via CLI
+```brew install symfony-cli/tap/symfony-cli```
+
+## Information concernant les versions de PHP & SYMFONY
+```symfony console about```
+
+## Créer un projet en full (website) avec tous les composants
+
+### version Composer
+```composer create-project symfony/website-skeleton nom-du-projet```
+
+### version CLI 
+```symfony new --webapp nom-du-projet```
+
+## Utilisation de symfony en version LTS
+```symfony new --webapp projet-lts --version=lts```
+
+## Choix des versions : 
+### version CLI
+```symfony new --webapp nom-du-projet --version=4.4```
+
+### Version Composer
+```composer create-project symfony/skeleton:"6.4.*" nom-du-projet```
+
+## Start le serveur
+### version CLI
+```symfony serve```
+
+### version Composer
+```composer create-project symfony/skeleton nom-du-projet```
+
+## Arrêter le serveur
+## version CLI
+```symfony server:stop```
+
+## Afin d'avoir un serveur en HTTPS
+```symfony server:ca:install```
+
+## Verifier les requirements
+symfony check:requirements
+
+## Créer une base de données
+```symfony console doctrine:database:create```
+
+## Créer une connexion avec user 
+```symfony console make:user````
+
+## Créer un controller 
+```symfony console make:controller```
+
+Créer un formulaire d'authentification
+```symfony console make:auth```
+
+## Créer un formulaire de registration
+```symfony console make:registration-form```
+
+## Créer une migration
+```symfony console d:m:m```
+```symfony console doctrine:migration:migrate```
+
+## Avoir des fixtures (voir cours)
+```composer require --dev orm-fixtures ```
+
+## Générer des données fake 
+```composer require fakerphp/faker```
+
+## Regénérer sa base de donnée :
+```symfony console doctrine:schema:update --complete --force```
+### puis, dans le cas où on veut générer à nouveau ses fixtures
+symfony console doctrine:fixtures:load --no-interaction

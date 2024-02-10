@@ -11,17 +11,17 @@ L'ORM (Object-Relational Mapping) en Symfony est un concept clé qui facilite la
 
 
 ##  AbstractController dans les Controllers
-En Symfony, l'extension de AbstractController offre plusieurs avantages. Cela permet l'accès aux services Symfony, comme l'ORM Doctrine, simplifie la génération d'URL, facilite la gestion des réponses HTTP avec des méthodes dédiées comme $this->redirectToRoute(). De plus, l'accès à la session et la manipulation des cookies sont simplifiés. L'extension facilite l'intégration avec d'autres composants Symfony, gère automatiquement l'injection de dépendances, et offre l'utilisation transparente du moteur de templates Twig via $this->render(). ** En résumé, étendre AbstractController simplifie le développement en fournissant des fonctionnalités pratiques et une intégration fluide avec les services Symfony. Toutefois, on peut s'en passer. **
-- render() => rendu de la page html de notre route
-- RedirectToRoute() => redirige vers une route
+En Symfony, l'extension de AbstractController offre plusieurs avantages. Cela permet l'accès aux services Symfony, comme l'ORM Doctrine via $this->getDoctrine(), simplifie la génération d'URL avec $this->generateUrl(), facilite la gestion des réponses HTTP avec des méthodes dédiées comme $this->redirectToRoute(). De plus, l'accès à la session et la manipulation des cookies sont simplifiés. L'extension facilite l'intégration avec d'autres composants Symfony, gère automatiquement l'injection de dépendances, et offre l'utilisation transparente du moteur de templates Twig via $this->render(). En résumé, étendre AbstractController simplifie le développement en fournissant des fonctionnalités pratiques et une intégration fluide avec les services Symfony. Toutefois, on peut s'en passer.
+
 
 ## Route
 En Symfony, l'annotation @Route est utilisée pour définir des routes dans le contexte d'un contrôleur. Une route est une correspondance entre une URL et une action à exécuter dans un contrôleur. L'utilisation de l'annotation @Route permet à Symfony de lier une URL spécifique à une méthode particulière d'un contrôleur.
 
-
+- render() => rendu de la page html de notre route
+- RedirectToRoute() => redirige vers une route
 
 ## Twig 
-Attention à ne pas oublier la balise méta viewport !!!
+Attention à ne pas oublier la balide méta viewport
 
 ## Data Fixtures
 les data fixtures est un composant de doctrine qui permet de générer automatiquement des données comme par exemple avoir des faux utilisateurs 
